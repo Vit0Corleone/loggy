@@ -72,6 +72,6 @@ func logIt(level, format, msg string) {
 	case TextFormat:
 		fmt.Printf("%v\n[%s]: %s\n\n", Time, level, msg)
 	default:
-		fmt.Printf("{\n    TIME: %v,\n    LEVEL: %s,\n    MESSAGE: %s,\n},\n", Time, level, msg)
+		fmt.Printf("{\n    TIME:    %v,\n    LEVEL:   %s,\n    MESSAGE: %s,\n},\n", Time, level, msg)
 	}
 }
