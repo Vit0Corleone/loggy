@@ -18,8 +18,6 @@ const (
 	JSONFormat = "json"
 )
 
-var Time = colors.SetColor(time.Now().Format("2006-01-02 15:04:05.00"), colors.DarkBlue)
-
 type Logger struct {
 	Level  string
 	Format string
@@ -68,10 +66,12 @@ func (l *Logger) Error(msg string) {
 }
 
 func logIt(level, format, msg string) {
+	set_time := colors.SetColor(time.Now().Format("2006-01-02 15:04:05.00"), colors.DarkBlue)
+
 	switch format {
 	case TextFormat:
-		fmt.Printf("%v\n[%s]: %s\n\n", Time, level, msg)
+		fmt.Printf("%v\n[%s]: %s\n\n", set_time, level, msg)
 	default:
-		fmt.Printf("{\n    TIME:    %v,\n    LEVEL:   %s,\n    MESSAGE: %s,\n},\n", Time, level, msg)
+		fmt.Printf("{\n    TIME:    %v,\n    LEVEL:   %s,\n    MESSAGE: %s,\n},\n", set_time, level, msg)
 	}
 }
